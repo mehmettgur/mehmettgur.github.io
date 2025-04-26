@@ -7,33 +7,37 @@
     <title>Mehmet Gür</title>
     <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- Custom Animated Cursor Styles -->
+    <!-- Particle & Cursor Styles -->
     <style>
-      body { cursor: none; }
-      #cursor {
+      /* Particle background canvas */
+      #bg {
         position: fixed;
-        width: 20px;
-        height: 20px;
-        background: rgba(25, 118, 210, 0.8);
-        border: 2px solid #1976d2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+      /* Cursor trail dots */
+      .cursor-trail {
+        position: fixed;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         pointer-events: none;
-        transform: translate(-50%, -50%) scale(1);
-        animation: pulse 1.2s ease-in-out infinite;
-        z-index: 9999;
+        animation: fade 1s forwards;
       }
-      @keyframes pulse {
-        0% { transform: translate(-50%, -50%) scale(1); }
-        50% { transform: translate(-50%, -50%) scale(1.5); }
-        100% { transform: translate(-50%, -50%) scale(1); }
+      @keyframes fade {
+        to { opacity: 0; transform: scale(2); }
       }
     </style>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
-    <!-- Animated cursor -->
-    <div id="cursor"></div>
+    <!-- Particle Background -->
+    <canvas id="bg"></canvas>
 
     <!-- Desktop Navigation -->
     <nav id="desktop-nav">
@@ -53,7 +57,9 @@
       <div class="logo">Mehmet Gür</div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
@@ -104,7 +110,12 @@
       <div class="section-container">
         <div class="about-details-container">
           <div class="text-container">
-            <p>Hello, my name is Mehmet! I am currently a senior student at TOBB Economy and Technology University Artificial Intelligence Engineering. I would like to improve myself in Machine Learning, Deep Learning, Computer Vision, and LLM.</p>
+            <p>
+              Hello, my name is Mehmet! I am currently a senior student at 
+              TOBB Economy and Technology University Artificial Intelligence Engineering. I would like 
+              to improve myself in the fields of Machine Learning, Deep Learning, 
+              Computer Vision and LLM.
+            </p>
           </div>
           <div class="about-containers">
             <div class="details-container">
@@ -206,13 +217,38 @@
       <p>Copyright © 2025 Mehmet Gür. All Rights Reserved.</p>
     </footer>
 
+    <!-- Scripts for Cursor Trail & Particles -->
     <script>
-      // Cursor movement
-      const cursor = document.getElementById('cursor');
+      // Cursor Trail
+      const colors = ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93'];
       document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+        const dot = document.createElement('div');
+        dot.className = 'cursor-trail';
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+        document.body.append(dot);
+        setTimeout(() => dot.remove(), 1000);
       });
-    </script>
-  </body>
-</html>
+
+      // Particle Background Animation
+      const canvas = document.getElementById('bg');
+      const ctx = canvas.getContext('2d');
+      let w, h;
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+      const particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 3 + 1,
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.7,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
