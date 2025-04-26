@@ -353,8 +353,6 @@ article .icon {
   cursor: default;
 }
 
-/* PROJECTS SECTION */
-
 #projects {
   position: relative;
 }
@@ -366,8 +364,9 @@ article .icon {
 
 .project-img {
   border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 .project-title {
@@ -378,6 +377,15 @@ article .icon {
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
+}
+
+#projects .details-container .article-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* CONTACT */
