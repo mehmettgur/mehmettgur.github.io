@@ -16,11 +16,17 @@ document.addEventListener('mousemove', e => {
 function createBgBubble(){
   const b = document.createElement('div');
   b.className = 'bg-bubble';
-  const size = Math.random() * 4 + 2; // 2–6px
+
+  const size = Math.random() * 6 + 2;
   b.style.width  = size + 'px';
   b.style.height = size + 'px';
-  b.style.left   = Math.random() * window.innerWidth + 'px';
+ 
+  b.style.left = Math.random() * window.innerWidth + 'px';
+  b.style.top  = Math.random() * window.innerHeight + 'px';
   document.body.appendChild(b);
+ 
   b.addEventListener('animationend', () => b.remove());
 }
-setInterval(createBgBubble, 300);
+
+setInterval(createBgBubble, 150);
+
