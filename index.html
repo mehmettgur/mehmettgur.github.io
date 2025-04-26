@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mehmet Gür</title>
-    <!-- Lottie Player -->
+    <!-- Lottie Player (optional, remove if not used) -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Particle & Cursor Styles -->
     <style>
@@ -76,15 +76,6 @@
         <img src="./assets/profile.png" alt="Mehmet Gür profile picture" />
       </div>
       <div class="section__text">
-        <!-- AI Brain Lottie -->
-        <lottie-player
-          src="https://assets1.lottiefiles.com/packages/lf20_q5pk6p1k.json"
-          background="transparent"
-          speed="1"
-          style="width:120px; height:120px; margin:auto;"
-          loop
-          autoplay
-        ></lottie-player>
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Mehmet Gür</h1>
         <p class="section__text__p2">Artificial Intelligence Engineer</p>
@@ -97,8 +88,18 @@
           </button>
         </div>
         <div id="socials-container">
-          <img src="./assets/linkedin.png" class="icon" alt="LinkedIn" onclick="location.href='https://www.linkedin.com/in/mehmetgur/'" />
-          <img src="./assets/github.png" class="icon" alt="GitHub" onclick="location.href='https://github.com/mehmettgur'" />
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/mehmetgur/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/mehmettgur'"
+          />
         </div>
       </div>
     </section>
@@ -119,36 +120,42 @@
           </div>
           <div class="about-containers">
             <div class="details-container">
-              <img src="./assets/experience.png" class="icon" alt="Experience" />
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
               <h3>Experience</h3>
-              <p>Computer Vision Engineer @SportationAI<br />AI Training Coding Expert @Outlier<br />Long Term AI Engineer Intern @Jotform</p>
+              <p>
+                Computer Vision Engineer @SportationAI <br />
+                AI Training Coding Expert @Outlier <br />
+                Long Term Artificial Intelligence Engineer Intern @Jotform
+              </p>
             </div>
             <div class="details-container">
-              <img src="./assets/education.png" class="icon" alt="Education" />
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
               <h3>Education</h3>
-              <p>B.Sc. AI Engineering @TOBB ETÜ</p>
+              <p>B.Sc. Bachelors Degree @TOBB ETU</p>
             </div>
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#skills'" />
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#skills'"
+      />
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Skills</h1>
-      <!-- Gears Lottie -->
-      <div style="text-align:center; margin-bottom:2rem;">
-        <lottie-player
-          src="https://assets7.lottiefiles.com/packages/lf20_puciaact.json"
-          background="transparent"
-          speed="1"
-          style="width:100px; height:100px;"
-          loop
-          autoplay
-        ></lottie-player>
-      </div>
       <div class="skills-details-container">
         <div class="about-containers">
           <div class="details-container">
@@ -165,7 +172,12 @@
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#projects'" />
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
     </section>
 
     <!-- Projects Section -->
@@ -175,31 +187,33 @@
       <div class="skills-details-container">
         <!-- project cards -->
       </div>
-      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#contact'" />
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
-      <!-- Contact Lottie -->
-      <div style="text-align:center; width:100%; margin-bottom:1rem;">
-        <lottie-player
-          src="https://assets2.lottiefiles.com/packages/lf20_x62chJ.json"
-          background="transparent"
-          speed="1"
-          style="width:120px; height:120px; margin:auto;"
-          loop
-          autoplay
-        ></lottie-player>
-      </div>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./assets/email.png" class="icon contact-icon email-icon" alt="Email" />
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
           <p><a href="mailto:mehmett.guur@gmail.com">mehmett.guur@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/linkedin.png" class="icon contact-icon" alt="LinkedIn" />
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
           <p><a href="https://www.linkedin.com/in/mehmetgur/">LinkedIn</a></p>
         </div>
       </div>
@@ -252,3 +266,21 @@
           color: colors[Math.floor(Math.random() * colors.length)]
         });
       }
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
+</html>
