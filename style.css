@@ -1,3 +1,42 @@
+:root {
+  --bg-color: #000;
+  --text-primary: #eee;
+  --text-secondary: #bbb;
+  --nav-bg: rgba(0,0,0,0.8);
+  --card-bg: rgba(20,20,20,0.8);
+  --icon-filter: brightness(0) invert(1);
+}
+
+/* ——— Genel Dark Mode Ayarları ——— */
+body {
+  background: url('./assets/space.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-primary);
+}
+
+nav {
+  background-color: var(--nav-bg);
+}
+
+a, p, h1, h2, h3 {
+  color: var(--text-primary);
+}
+
+p { color: var(--text-secondary); }
+
+.details-container, .btn, footer {
+  background: var(--card-bg);
+}
+
+.icon {
+  filter: var(--icon-filter);
+}
+
+a:hover {
+  color: #fff;
+  text-decoration-color: var(--text-secondary);
+}
+
 /* GENERAL */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
@@ -437,4 +476,34 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+.cursor-bubble {
+  position: absolute;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: bubble-pop 0.8s ease-out forwards;
+}
+@keyframes bubble-pop {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+.bg-bubble {
+  position: absolute;
+  bottom: -10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  animation: float-up 8s linear infinite;
+}
+@keyframes float-up {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 0.4; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
