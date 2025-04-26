@@ -7,10 +7,35 @@
     <title>Mehmet Gür</title>
     <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Custom Animated Cursor Styles -->
+    <style>
+      body { cursor: none; }
+      #cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: rgba(25, 118, 210, 0.8);
+        border: 2px solid #1976d2;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(1);
+        animation: pulse 1.2s ease-in-out infinite;
+        z-index: 9999;
+      }
+      @keyframes pulse {
+        0% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.5); }
+        100% { transform: translate(-50%, -50%) scale(1); }
+      }
+    </style>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    <!-- Animated cursor -->
+    <div id="cursor"></div>
+
+    <!-- Desktop Navigation -->
     <nav id="desktop-nav">
       <div class="logo">Mehmet Gür</div>
       <div>
@@ -22,13 +47,13 @@
         </ul>
       </div>
     </nav>
+
+    <!-- Mobile Navigation -->
     <nav id="hamburger-nav">
       <div class="logo">Mehmet Gür</div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
@@ -39,13 +64,13 @@
       </div>
     </nav>
 
-    <!-- PROFILE SECTION -->
+    <!-- Profile Section -->
     <section id="profile">
       <div class="section__pic-container">
         <img src="./assets/profile.png" alt="Mehmet Gür profile picture" />
       </div>
       <div class="section__text">
-        <!-- Lottie AI Brain Animation -->
+        <!-- AI Brain Lottie -->
         <lottie-player
           src="https://assets1.lottiefiles.com/packages/lf20_q5pk6p1k.json"
           background="transparent"
@@ -58,10 +83,7 @@
         <h1 class="title">Mehmet Gür</h1>
         <p class="section__text__p2">Artificial Intelligence Engineer</p>
         <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/MehmetGurCV.pdf')"
-          >
+          <button class="btn btn-color-2" onclick="window.open('./assets/MehmetGurCV.pdf')">
             Download CV
           </button>
           <button class="btn btn-color-1" onclick="location.href='./#contact'">
@@ -69,71 +91,43 @@
           </button>
         </div>
         <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/mehmetgur/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/mehmettgur'"
-          />
+          <img src="./assets/linkedin.png" class="icon" alt="LinkedIn" onclick="location.href='https://www.linkedin.com/in/mehmetgur/'" />
+          <img src="./assets/github.png" class="icon" alt="GitHub" onclick="location.href='https://github.com/mehmettgur'" />
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- About Section -->
     <section id="about">
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
       <div class="section-container">
         <div class="about-details-container">
           <div class="text-container">
-            <p>
-              Hello, my name is Mehmet! I am currently a senior student at 
-              TOBB Economy and Technology University Artificial Intelligence Engineering. I would like 
-              to improve myself in the fields of Machine Learning, Deep Learning, 
-              Computer Vision and LLM.
-            </p>
+            <p>Hello, my name is Mehmet! I am currently a senior student at TOBB Economy and Technology University Artificial Intelligence Engineering. I would like to improve myself in Machine Learning, Deep Learning, Computer Vision, and LLM.</p>
           </div>
           <div class="about-containers">
             <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
+              <img src="./assets/experience.png" class="icon" alt="Experience" />
               <h3>Experience</h3>
-              <p>Computer Vision Engineer @SportationAI <br />AI Training Coding Expert @Outlier <br /> Long Term Artificial Intelligence Engineer Intern @Jotform </p>
+              <p>Computer Vision Engineer @SportationAI<br />AI Training Coding Expert @Outlier<br />Long Term AI Engineer Intern @Jotform</p>
             </div>
             <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
+              <img src="./assets/education.png" class="icon" alt="Education" />
               <h3>Education</h3>
-              <p>B.Sc. Bachelors Degree @TOBB ETU</p>
+              <p>B.Sc. AI Engineering @TOBB ETÜ</p>
             </div>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#skills'"
-      />
+      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#skills'" />
     </section>
 
-    <!-- SKILLS SECTION -->
+    <!-- Skills Section -->
     <section id="skills">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Skills</h1>
-      <!-- Lottie Gears Animation -->
+      <!-- Gears Lottie -->
       <div style="text-align:center; margin-bottom:2rem;">
         <lottie-player
           src="https://assets7.lottiefiles.com/packages/lf20_puciaact.json"
@@ -145,61 +139,56 @@
         ></lottie-player>
       </div>
       <div class="skills-details-container">
-        ... <!-- existing skill articles -->
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="skills-sub-title">Libraries & Frameworks</h2>
+            <div class="article-container">
+              <!-- skill list -->
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="skills-sub-title">Areas of Expertise</h2>
+            <div class="article-container">
+              <!-- expertise list -->
+            </div>
+          </div>
+        </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
+      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#projects'" />
     </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- Projects Section -->
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
       <div class="skills-details-container">
-        ...  
+        <!-- project cards -->
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
+      <img src="./assets/arrow.png" class="icon arrow" alt="Arrow" onclick="location.href='./#contact'" />
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- Contact Section -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
+      <!-- Contact Lottie -->
+      <div style="text-align:center; width:100%; margin-bottom:1rem;">
+        <lottie-player
+          src="https://assets2.lottiefiles.com/packages/lf20_x62chJ.json"
+          background="transparent"
+          speed="1"
+          style="width:120px; height:120px; margin:auto;"
+          loop
+          autoplay
+        ></lottie-player>
+      </div>
       <div class="contact-info-upper-container">
-        <!-- Lottie Contact Animation -->
-        <div style="text-align:center; width:100%; margin-bottom:1rem;">
-          <lottie-player
-            src="https://assets2.lottiefiles.com/packages/lf20_x62chJ.json"
-            background="transparent"
-            speed="1"
-            style="width:120px; height:120px; margin:auto;"
-            loop
-            autoplay
-          ></lottie-player>
-        </div>
         <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
+          <img src="./assets/email.png" class="icon contact-icon email-icon" alt="Email" />
           <p><a href="mailto:mehmett.guur@gmail.com">mehmett.guur@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
+          <img src="./assets/linkedin.png" class="icon contact-icon" alt="LinkedIn" />
           <p><a href="https://www.linkedin.com/in/mehmetgur/">LinkedIn</a></p>
         </div>
       </div>
@@ -207,17 +196,23 @@
 
     <footer>
       <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
-      <p>Copyright &#169; 2025 Mehmet Gür. All Rights Reserved.</p>
+      <p>Copyright © 2025 Mehmet Gür. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+      // Cursor movement
+      const cursor = document.getElementById('cursor');
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+    </script>
   </body>
 </html>
