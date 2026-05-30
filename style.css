@@ -305,6 +305,11 @@ section {
   text-align: center;
 }
 
+.experience-list {
+  line-height: 1.8;
+  margin-top: 0.5rem;
+}
+
 .section-container {
   gap: 4rem;
   height: 80%;
@@ -320,6 +325,8 @@ section {
 
 #skills {
   position: relative;
+  height: fit-content;
+  min-height: 96vh;
 }
 
 .skills-sub-title {
@@ -351,12 +358,26 @@ article {
   gap: 0.5rem;
 }
 
+article h3 {
+  overflow-wrap: anywhere;
+}
+
 article .icon {
   cursor: default;
 }
 
 #projects {
   position: relative;
+  height: fit-content;
+  min-height: 96vh;
+}
+
+#skills .details-container {
+  flex: 1 1 17rem;
+}
+
+#projects .details-container {
+  flex: 1 1 15rem;
 }
 
 .color-container {
@@ -373,6 +394,7 @@ article .icon {
 
 .project-title {
   margin: 1rem;
+  font-size: 1.35rem;
   color: black;
 }
 
@@ -474,5 +496,4 @@ footer p {
   10%  { opacity: 0.4; }
   100% { transform: translateY(-120vh); opacity: 0; }
 }
-
 
