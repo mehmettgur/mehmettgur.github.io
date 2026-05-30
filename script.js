@@ -4,7 +4,28 @@ function toggleMenu() {
   menu.classList.toggle("open");
   icon.classList.toggle("open");
 }
+
+const MAX_CURSOR_BUBBLES = 25;
+const MAX_BG_BUBBLES = 35;
+let lastCursorBubbleTime = 0;
+
+function trimBubbles(selector, maxCount) {
+  const bubbles = document.querySelectorAll(selector);
+  const overflow = bubbles.length - maxCount;
+
+  for (let i = 0; i < overflow; i++) {
+    bubbles[i].remove();
+  }
+}
+
 document.addEventListener('mousemove', e => {
+  const now = Date.now();
+  if (now - lastCursorBubbleTime < 40) {
+    return;
+  }
+  lastCursorBubbleTime = now;
+  trimBubbles('.cursor-bubble', MAX_CURSOR_BUBBLES - 1);
+
   const b = document.createElement('div');
   b.className = 'cursor-bubble';
   b.style.left = e.clientX + 'px';
@@ -14,6 +35,8 @@ document.addEventListener('mousemove', e => {
 });
 
 function createBgBubble(){
+  trimBubbles('.bg-bubble', MAX_BG_BUBBLES - 1);
+
   const b = document.createElement('div');
   b.className = 'bg-bubble';
 
@@ -28,5 +51,4 @@ function createBgBubble(){
   b.addEventListener('animationend', () => b.remove());
 }
 
-setInterval(createBgBubble, 150);
-
+setInterval(createBgBubble, 350);

@@ -46,6 +46,9 @@
   .about-containers {
     margin-top: 0;
   }
+  #projects .about-containers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -100,5 +103,9 @@
   }
   .text-container {
     text-align: justify;
+  }
+  #skills .article-container,
+  #projects .about-containers {
+    grid-template-columns: 1fr;
   }
 }
